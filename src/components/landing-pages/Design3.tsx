@@ -62,7 +62,7 @@ export default function Design3() {
             <section className="design3-hero" aria-labelledby="hero-heading">
               <h1 id="hero-heading">Create video stories together</h1>
               <p className="design3-hero-sub">
-                A new form of social media. Create video stories with friends by chaining <span className="design3-highlight">6-second clips</span> into a collaborative video.
+                Create video stories with friends by chaining <span className="design3-highlight">6-second clips</span> into a single collaborative video
                 {/* Record <span className="design3-highlight">6-second clips</span>, chain them with friends, pass or publish as one video. <span className="design3-value-mint">Simple, spontaneous collaborative video</span> — every clip is part of a shared story, not a solo post. */}
               </p>
             </section>
@@ -117,6 +117,11 @@ export default function Design3() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Coming soon to App Store — bottom left */}
+      <div className="design3-coming-soon" aria-label="Coming soon to the App Store">
+        <span className="design3-coming-soon-text">Coming soon to the iOS App Store</span>
       </div>
     </main>
   )
