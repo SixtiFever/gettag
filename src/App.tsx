@@ -1,5 +1,6 @@
 import './App.css'
 import LandingPageDesign3 from './components/landing-pages/Design3'
+import TagLanding from './components/landing-pages/LandingPage'
 
 type DesignType = 'design1' | 'design2' | 'design3'
 
@@ -9,7 +10,7 @@ function App() {
   const currentDesign: DesignType = 'design3'
 
   const designs = {
-    design3: <LandingPageDesign3 />,
+    design3: <TagLanding />,
   } as const
 
   const renderDesign = () => {
