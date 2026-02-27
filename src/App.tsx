@@ -1,5 +1,4 @@
 import './App.css'
-import LandingPageDesign3 from './components/landing-pages/Design3'
 import TagLanding from './components/landing-pages/LandingPage'
 
 type DesignType = 'design1' | 'design2' | 'design3'

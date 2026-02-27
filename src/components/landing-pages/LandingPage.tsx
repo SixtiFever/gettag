@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import tagLogoPurple from "../../assets/icons/tag_logo_purple.png";
 
 const tagColors = {
