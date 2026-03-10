@@ -1,0 +1,353 @@
+/* NewLandingPage — Tag landing page
+   Minimal design with conversation/debate visual metaphor
+*/
+
+.new-landing {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.new-landing__bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.new-landing__bubble {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: #1e293b;
+}
+
+.new-landing__bubble--slate-700 {
+  background-color: #334155;
+}
+
+/* Left side: 4 bubbles */
+.new-landing__bubble--1 { left: 8%; top: 12%; opacity: 0.08; width: 8rem; height: 5rem; }
+.new-landing__bubble--2 { left: 12%; top: 35%; opacity: 0.06; width: 6rem; height: 4rem; }
+.new-landing__bubble--3 { left: 5%; top: 60%; opacity: 0.07; width: 7rem; height: 4.5rem; }
+.new-landing__bubble--7 { left: 15%; bottom: 18%; opacity: 0.06; width: 6.5rem; height: 4.25rem; }
+/* Right side: 4 bubbles */
+.new-landing__bubble--4 { right: 8%; top: 18%; left: auto; opacity: 0.08; width: 7rem; height: 4.5rem; }
+.new-landing__bubble--5 { right: 12%; top: 42%; left: auto; opacity: 0.07; width: 8rem; height: 5rem; }
+.new-landing__bubble--6 { right: 5%; top: 65%; left: auto; opacity: 0.06; width: 6rem; height: 4rem; }
+.new-landing__bubble--8 { right: 15%; bottom: 18%; left: auto; opacity: 0.07; width: 7.5rem; height: 4.75rem; }
+
+.new-landing__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.new-landing__content {
+  position: relative;
+  z-index: 10;
+  max-width: 42rem;
+  width: 100%;
+  text-align: center;
+}
+
+.new-landing__logo-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.new-landing__logo {
+  font-size: 6rem;
+  font-weight: 300;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .new-landing__logo {
+    font-size: 8rem;
+  }
+}
+
+.new-landing__logo-line {
+  height: 1px;
+  width: 8rem;
+  background: linear-gradient(to right, transparent, #1e293b, transparent);
+  margin: 0 auto;
+}
+
+.new-landing__tagline {
+  font-size: 1.5rem;
+  color: #334155;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .new-landing__tagline {
+    font-size: 1.875rem;
+  }
+}
+
+.new-landing__description {
+  font-size: 1.125rem;
+  color: #475569;
+  margin-bottom: 3.5rem;
+  line-height: 1.75;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .new-landing__description {
+    font-size: 1.25rem;
+  }
+}
+
+.new-landing__form-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 0.75rem;
+}
+
+.new-landing__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 28rem;
+  margin: 0 auto 1rem;
+}
+
+.new-landing__form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .new-landing__form-row {
+    flex-direction: row;
+  }
+}
+
+.new-landing__input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 9999px;
+  background-color: white;
+  border: 2px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.new-landing__input::placeholder {
+  color: #94a3b8;
+}
+
+.new-landing__input:focus {
+  outline: none;
+  border-color: #1e293b;
+}
+
+.new-landing__input:disabled {
+  opacity: 0.7;
+}
+
+.new-landing__btn {
+  padding: 1rem 2rem;
+  background-color: #0f172a;
+  color: white;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.new-landing__btn:hover:not(:disabled) {
+  background-color: #1e293b;
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.new-landing__btn:disabled {
+  opacity: 0.7;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.new-landing__error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.new-landing__success-box {
+  background-color: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  max-width: 28rem;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.new-landing__success-icon {
+  font-size: 3.75rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.new-landing__success-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.new-landing__success-text {
+  color: #475569;
+  font-weight: 300;
+}
+
+.new-landing__subtext {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-top: 3rem;
+  letter-spacing: 0.05em;
+}
+
+/* Keyframe animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10px, -15px) scale(1.05); }
+  66% { transform: translate(-8px, 10px) scale(0.95); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-12px, 12px) scale(1.08); }
+  66% { transform: translate(15px, -8px) scale(0.92); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(8px, 10px) scale(0.98); }
+  66% { transform: translate(-10px, -12px) scale(1.04); }
+}
+
+@keyframes float-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-15px, 8px) scale(1.06); }
+  66% { transform: translate(12px, -10px) scale(0.94); }
+}
+
+@keyframes float-5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10px, -12px) scale(0.96); }
+  66% { transform: translate(-14px, 15px) scale(1.07); }
+}
+
+@keyframes float-6 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-8px, -10px) scale(1.03); }
+  66% { transform: translate(11px, 8px) scale(0.97); }
+}
+
+@keyframes float-7 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(12px, 10px) scale(1.04); }
+  66% { transform: translate(-10px, -8px) scale(0.96); }
+}
+
+@keyframes float-8 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10px, 12px) scale(0.98); }
+  66% { transform: translate(8px, -14px) scale(1.05); }
+}
+
+@keyframes draw-1 {
+  0%, 100% { stroke-dashoffset: 1000; }
+  50% { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-2 {
+  0%, 100% { stroke-dashoffset: 1000; }
+  50% { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-3 {
+  0%, 100% { stroke-dashoffset: 1000; }
+  50% { stroke-dashoffset: 0; }
+}
+
+.new-landing .animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.new-landing .animate-fade-in-delay-1 {
+  animation: fade-in 0.8s ease-out 0.2s backwards;
+}
+
+.new-landing .animate-fade-in-delay-2 {
+  animation: fade-in 0.8s ease-out 0.4s backwards;
+}
+
+.new-landing .animate-fade-in-delay-3 {
+  animation: fade-in 0.8s ease-out 0.6s backwards;
+}
+
+.new-landing .animate-fade-in-delay-4 {
+  animation: fade-in 0.8s ease-out 0.8s backwards;
+}
+
+.new-landing .animate-float-1 { animation: float-1 20s ease-in-out infinite; }
+.new-landing .animate-float-2 { animation: float-2 18s ease-in-out infinite 2s; }
+.new-landing .animate-float-3 { animation: float-3 22s ease-in-out infinite 4s; }
+.new-landing .animate-float-4 { animation: float-4 19s ease-in-out infinite 1s; }
+.new-landing .animate-float-5 { animation: float-5 21s ease-in-out infinite 3s; }
+.new-landing .animate-float-6 { animation: float-6 23s ease-in-out infinite 5s; }
+.new-landing .animate-float-7 { animation: float-7 17s ease-in-out infinite 6s; }
+.new-landing .animate-float-8 { animation: float-8 24s ease-in-out infinite 7s; }
+
+.new-landing .animate-draw-1 {
+  stroke-dasharray: 1000;
+  animation: draw-1 30s ease-in-out infinite;
+}
+
+.new-landing .animate-draw-2 {
+  stroke-dasharray: 1000;
+  animation: draw-2 35s ease-in-out infinite 5s;
+}
+
+.new-landing .animate-draw-3 {
+  stroke-dasharray: 1000;
+  animation: draw-3 32s ease-in-out infinite 10s;
+}
