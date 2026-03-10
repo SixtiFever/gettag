@@ -104,14 +104,21 @@ export default function TagLanding() {
         </div>
 
         {/* Tagline */}
-        <h2 className="new-landing__tagline animate-fade-in-delay-1">
+        {/* <h2 className="new-landing__tagline animate-fade-in-delay-1">
           Turn-based video debates
+        </h2> */}
+        <h2 className="new-landing__tagline animate-fade-in-delay-1">
+          Social Debating App
         </h2>
 
         {/* Description */}
-        <p className="new-landing__description animate-fade-in-delay-2">
+        {/* <p className="new-landing__description animate-fade-in-delay-2">
           Start a hot take. Tag someone to respond.
           Build public debates, 6 seconds at a time.
+        </p> */}
+
+        <p className="new-landing__description animate-fade-in-delay-2">
+          Record your take. Tag someone to respond.<br></br> Watch the debate grow.
         </p>
 
         {/* Email signup */}
@@ -153,7 +160,7 @@ export default function TagLanding() {
 
         {/* Subtext */}
         <p className="new-landing__subtext animate-fade-in-delay-4">
-          LAUNCHING AT UK UNIVERSITIES · SPRING 2025
+          Launching soon on <b>App Store</b> & <b>Google Play</b>
         </p>
       </div>
     </div>
