@@ -19,10 +19,12 @@ body {
   overflow: hidden;
 }
 
-/* App Container - Base styles for all designs */
+/* App Container - full viewport; beta landing is one screen, no scroll */
 .app-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  min-height: 0;
+  overflow: hidden;
 }
