@@ -60,6 +60,13 @@
   opacity: 0.1;
 }
 
+.new-landing__top-left-logo {
+  position: absolute;
+  top: clamp(0.85rem, 2.4vw, 1.4rem);
+  left: clamp(2.85rem, 2.8vw, 1.75rem);
+  z-index: 20;
+}
+
 .new-landing__inner {
   position: relative;
   z-index: 10;
@@ -81,8 +88,8 @@
 }
 
 .new-landing__title {
-  font-size: clamp(3.25rem, 14vw, 7.5rem);
-  font-weight: 800;
+  font-size: clamp(3rem, 1vw, 2.5rem);
+  font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.045em;
   margin: 0;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './NewLandingPage.css';
+import TitleLogo from './TitleLogo';
 
 const SUBMIT_EMAIL_URL = 'https://us-central1-tag-lp-cloudfunction.cloudfunctions.net/submitEmail';
 
@@ -88,18 +89,18 @@ export default function TagLanding() {
           />
         </svg>
       </div>
+      <div className="new-landing__top-left-logo animate-fade-in">
+        <TitleLogo />
+      </div>
 
       <div className="new-landing__inner">
         <div className="new-landing__copy animate-fade-in">
-          <h1 className="new-landing__title">Tag</h1>
+          <h1 className="new-landing__title">The Micro debating app</h1>
           <p className="new-landing__subtitle animate-fade-in-delay-1">
-            Public turn based video debates
+            Build debates with bite-sized takes
           </p>
           <p className="new-landing__support animate-fade-in-delay-2">
-            Record your take, tag someone to respond, watch the debate grow.
-          </p>
-          <p className="new-landing__catch animate-fade-in-delay-3">
-            Debating.&nbsp;Reimagined.
+            Post a 20-second take, tag someone to respond, and watch the debate grow one take at a time.
           </p>
         </div>
 
