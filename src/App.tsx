@@ -1,24 +1,20 @@
 import './App.css'
-import TagLanding from './components/landing-pages/NewLandingPage'
+import NewLandingPage from './components/landing-pages/NewLandingPage'
+import TagDebateLP from './components/landing-pages/TagDebateLP'
 
-type DesignType = 'design1' | 'design2' | 'design3'
+type LandingPageVariant = 'newLanding' | 'tagDebate'
 
 function App() {
-  // Easy way to toggle designs - just change the component here
-  // To add a new design, create Design3.tsx in components/landing-pages/ and import it
-  const currentDesign: DesignType = 'design3'
+  const variant: LandingPageVariant = 'newLanding'
 
-  const designs = {
-    design3: <TagLanding />,
+  const pages = {
+    newLanding: <NewLandingPage />,
+    tagDebate: <TagDebateLP />,
   } as const
-
-  const renderDesign = () => {
-    return designs[currentDesign] || designs.design3
-  }
 
   return (
     <div className="app-container">
-      {renderDesign()}
+      {pages[variant]}
     </div>
   )
 }
