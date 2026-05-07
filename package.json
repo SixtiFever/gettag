@@ -13,7 +13,8 @@
     "lucide-react": "^1.14.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "sendpulse-api": "^1.1.7"
+    "sendpulse-api": "^1.1.7",
+    "react-native-svg": "15.12.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

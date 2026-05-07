@@ -2,19 +2,20 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ChevronDown,
   ChevronUp,
-  Earth,
   Link2,
-  Mic,
-  Send,
   Share2,
   Timer,
-  TrendingUp,
   UsersRound,
 } from 'lucide-react';
 import './NewLandingPage.css';
 import splashHero from '../../assets/icons/splash-icon-light.png';
+import ConnectedWorld from '../../assets/svg/ConnectedWorld';
+import GrowGlobal from '../../assets/svg/GrowGlobal';
+import RecordSelfie from '../../assets/svg/RecordSeflie';
+import TagSomeone from '../../assets/svg/TagSomeone';
 import TitleLogo from './TitleLogo';
 import { HowWorksStepIcon } from './HowWorksStepIcon';
+import CrossPlatformMale from '../../assets/svg/CrossPlatformMale';
 
 const SUBMIT_EMAIL_URL = 'https://us-central1-tag-lp-cloudfunction.cloudfunctions.net/submitEmail';
 
@@ -25,6 +26,13 @@ const SCROLL_SECTIONS = [
   { id: 'how-it-works', label: 'How it works' },
   { id: 'why-it-works', label: 'Why it works' },
 ] as const;
+
+/** Label shown beside the down arrow (next section title / CTA from current viewport) */
+const NEXT_SECTION_CTA: Partial<Record<(typeof SCROLL_SECTIONS)[number]['id'], string>> = {
+  hero: 'Why Tag',
+  problem: 'See how Tag works',
+  'how-it-works': 'Key Features',
+};
 
 type ScrollSectionId = (typeof SCROLL_SECTIONS)[number]['id'];
 
@@ -97,6 +105,9 @@ export default function TagLanding() {
     activeScrollIndex < SCROLL_SECTIONS.length - 1
       ? SCROLL_SECTIONS[activeScrollIndex + 1]
       : null;
+  const nextSectionCta = nextSection
+    ? NEXT_SECTION_CTA[activeSectionId] ?? nextSection.label
+    : null;
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -150,13 +161,13 @@ export default function TagLanding() {
           <ChevronUp className="new-landing__scroll-arrow-icon" aria-hidden />
         </button>
       )}
-      {nextSection && (
+      {nextSection && nextSectionCta && (
         <button
           type="button"
           className="new-landing__scroll-arrow new-landing__scroll-arrow--next"
-          aria-label={`Next section: ${nextSection.label}`}
           onClick={() => scrollToSection(nextSection.id)}
         >
+          <span className="new-landing__scroll-next-text">{nextSectionCta}</span>
           <ChevronDown className="new-landing__scroll-arrow-icon" aria-hidden />
         </button>
       )}
@@ -244,23 +255,25 @@ export default function TagLanding() {
           className="new-landing__section new-landing__section--split"
           aria-labelledby="new-landing-problem-heading"
         >
-          <div className="new-landing__split-intro">
-            <h2 id="new-landing-problem-heading" className="new-landing__split-heading">
-              Live video debating is broken
-            </h2>
-            <p className="new-landing__split-subheading">
-            Scheduling limits participation. Real-time rewards the loudest.
-            </p>
-          </div>
-          <div className="new-landing__split-main">
-            <div className="new-landing__split-body-col">
-              <p>
-              Traditional debate is gated by schedules, dominated by interruptions, and often won by volume. Tag transforms debate through flexible 20-second takes — making participation easier, responses sharper, and every voice accountable.
+          <div className="new-landing__split-problem-layout">
+            <div className="new-landing__split-problem-copy">
+              <div className="new-landing__split-intro">
+                <h2 id="new-landing-problem-heading" className="new-landing__split-heading">
+                  Video debating is broken
+                </h2>
+                <p className="new-landing__split-subheading">
+                  Scheduling limits participation. Real-time rewards theatre.
+                </p>
+              </div>
+              <p className="new-landing__split-solution">
+                <span className="new-landing__split-solution-em">Tag</span> transforms video debate through{' '}
+                <span className="new-landing__split-solution-em">flexible 20-second takes</span> — making
+                participation <span className="new-landing__split-solution-em">easier</span>, arguments{' '}
+                <span className="new-landing__split-solution-em">sharper</span>, and every voice{' '}
+                <span className="new-landing__split-solution-em">accountable</span>.
               </p>
             </div>
-            <figure className="new-landing__split-figure">
-              <div className="new-landing__split-image-slot" aria-hidden="true" />
-            </figure>
+            <ConnectedWorld props={{ className: 'new-landing__split-illustration' }} />
           </div>
         </section>
 
@@ -279,29 +292,54 @@ export default function TagLanding() {
               Build video debates take by take. Post anywhere.
             </p>
           </div>
-          <div className="new-landing__how-steps-wrap">
+          <div className="new-landing__how-steps-wrap new-landing__how-steps-wrap--with-bridge">
             <ol className="new-landing__how-steps">
               <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Mic} />
+                <div
+                  className="new-landing__how-step-icon-wrap new-landing__how-step-icon-wrap--circle"
+                  aria-hidden="true"
+                >
+                  <RecordSelfie props={{ className: 'new-landing__how-step-illustration' }} />
+                </div>
                 <span className="new-landing__how-keyword">Record</span>
-                <p className="new-landing__how-desc">Make your point in a 20-second video</p>
+                <p className="new-landing__how-desc">Make your point in a 20-second clip</p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Send} />
+                <div
+                  className="new-landing__how-step-icon-wrap new-landing__how-step-icon-wrap--circle"
+                  aria-hidden="true"
+                >
+                  <TagSomeone props={{ className: 'new-landing__how-step-illustration' }} />
+                </div>
                 <span className="new-landing__how-keyword">Tag</span>
-                <p className="new-landing__how-desc">Invite someone to respond</p>
+                <p className="new-landing__how-desc">Tag someone to respond. Their clip gets appended to yours.</p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={TrendingUp} />
+                <div
+                  className="new-landing__how-step-icon-wrap new-landing__how-step-icon-wrap--circle"
+                  aria-hidden="true"
+                >
+                  <GrowGlobal props={{ className: 'new-landing__how-step-illustration' }} />
+                </div>
                 <span className="new-landing__how-keyword">Grow</span>
-                <p className="new-landing__how-desc">The debate grows as more people are tagged in</p>
+                <p className="new-landing__how-desc">The debate chain grows as more people are tagged in</p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Earth} />
+                <div
+                  className="new-landing__how-step-icon-wrap new-landing__how-step-icon-wrap--circle"
+                  aria-hidden="true"
+                >
+                  <CrossPlatformMale props={{ className: 'new-landing__how-step-illustration' }} />
+                </div>
                 <span className="new-landing__how-keyword">Post</span>
                 <p className="new-landing__how-desc">Share debates and takes across platforms</p>
               </li>
             </ol>
+          </div>
+          <div className="new-landing__how-bridge">
+            <p className="new-landing__how-bridge-text">
+              Tag creates video debates that are convenient, fast-paced and high quality.
+            </p>
           </div>
         </section>
 
@@ -350,6 +388,53 @@ export default function TagLanding() {
               </li>
             </ul>
           </div>
+
+          <div className="new-landing__key-features-signup" aria-labelledby="new-landing-features-signup-heading">
+            <h3 id="new-landing-features-signup-heading" className="new-landing__key-features-signup-heading">
+              Join the beta
+            </h3>
+            {!submitted ? (
+              <form onSubmit={handleSubmit} className="new-landing__form">
+                <div className="new-landing__form-row">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    placeholder="Enter your email"
+                    disabled={status.type === 'loading'}
+                    className="new-landing__input"
+                    autoComplete="email"
+                    aria-describedby={
+                      status.type === 'error' ? 'new-landing-features-signup-error' : undefined
+                    }
+                  />
+                  <button
+                    type="submit"
+                    disabled={status.type === 'loading'}
+                    className="new-landing__btn"
+                  >
+                    {status.type === 'loading' ? 'Submitting...' : 'Join'}
+                  </button>
+                </div>
+                {status.type === 'error' && (
+                  <p id="new-landing-features-signup-error" className="new-landing__error" role="alert">
+                    {status.message}
+                  </p>
+                )}
+              </form>
+            ) : (
+              <div className="new-landing__key-features-signup-success" role="status">
+                <div className="new-landing__success-box">
+                  <div className="new-landing__success-icon">✓</div>
+                  <p className="new-landing__success-title">You&apos;re on the list</p>
+                  <p className="new-landing__success-text">
+                    We&apos;ll notify you when beta is launching.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
           <footer className="new-landing__footer">
             <nav className="new-landing__footer-nav" aria-label="Footer">
               <span className="new-landing__footer-domain">tag-social.com</span>
