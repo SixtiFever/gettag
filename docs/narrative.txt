@@ -1,0 +1,25 @@
+Mission Statement
+To reimagine global video debate through a frictionless creation process
+
+Problem
+Traditional video debating is limited by real time coordination. Whether on panels, podcasts or a YouTube show, logistics and scheduling limit participation and subsequently the quantity and quality of debates.
+
+Solution
+Tag is a debate creation app that lets users build, join and share asynchronous video debates – removing real-time constraints that limit traditional video debating, and providing cross-platform posting to existing audiences.
+
+Why it works
+Polarisation is increasing demand for social media content. Social media content is shifting towards reel video format. Thus, Tag helps creators create debate content audiences need in a format they already love.
+
+How it works
+Record - Make your point in a 20 second Take
+Tag - Invite another user to respond to your Take
+Grow - Watch the debate grow as more people get involved and have their say
+
+Key features
+Tagging system - Invite anyone into a debate to have their say, at a time convenient for them.
+Bite-sized takes - 20 second takes keep points sharp and concise
+Cross platform posting - Share individual takes or full debate chains to any platform
+
+
+Elevator pitch
+Increasing polarisation has driven demand for conversational social media content, particularly video debating. However, current video debates require real-time participation. This makes it tricky to find a time convenient for everyone — especially with participants across time zones. That's where Tag comes in. Tag is a mobile app where users build video debates asynchronously and publish them to their existing audiences across platforms. Debates don't depend on logistics, can grow globally, and contribution is effortless — all you need is your phone and a thought.

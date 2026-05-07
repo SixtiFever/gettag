@@ -2,9 +2,11 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ChevronDown,
   ChevronUp,
+  Earth,
+  Link2,
   Mic,
+  Send,
   Share2,
-  Tag,
   Timer,
   TrendingUp,
   UsersRound,
@@ -16,14 +18,12 @@ import { HowWorksStepIcon } from './HowWorksStepIcon';
 
 const SUBMIT_EMAIL_URL = 'https://us-central1-tag-lp-cloudfunction.cloudfunctions.net/submitEmail';
 
-/** Ordered scroll targets (hero → footer) for scroll-spy and prev/next arrows */
+/** Ordered scroll targets for scroll-spy and prev/next arrows */
 const SCROLL_SECTIONS = [
   { id: 'hero', label: 'Intro' },
   { id: 'problem', label: 'Problem' },
-  { id: 'solution', label: 'Solution' },
   { id: 'how-it-works', label: 'How it works' },
   { id: 'why-it-works', label: 'Why it works' },
-  { id: 'footer', label: 'Footer' },
 ] as const;
 
 type ScrollSectionId = (typeof SCROLL_SECTIONS)[number]['id'];
@@ -271,10 +271,12 @@ export default function TagLanding() {
         >
           <div className="new-landing__split-intro">
             <h2 id="new-landing-how-heading" className="new-landing__split-heading">
-              How it works
+              How Tag Works
             </h2>
             <p className="new-landing__split-subheading">
-              Record your point. Tag someone to respond. Watch the debate grow.
+              {/* Chain user takes into a single debate video and post it anywhere */}
+              {/* Build debates by chaining user takes into a single video */}
+              Build video debates take by take. Post anywhere.
             </p>
           </div>
           <div className="new-landing__how-steps-wrap">
@@ -282,100 +284,90 @@ export default function TagLanding() {
               <li className="new-landing__how-step new-landing__how-step--with-visual">
                 <HowWorksStepIcon icon={Mic} />
                 <span className="new-landing__how-keyword">Record</span>
-                <p className="new-landing__how-desc">Make your point in a 20-second take.</p>
+                <p className="new-landing__how-desc">Make your point in a 20-second video</p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Tag} />
+                <HowWorksStepIcon icon={Send} />
                 <span className="new-landing__how-keyword">Tag</span>
-                <p className="new-landing__how-desc">Invite someone to respond when it works for them.</p>
+                <p className="new-landing__how-desc">Invite someone to respond</p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
                 <HowWorksStepIcon icon={TrendingUp} />
                 <span className="new-landing__how-keyword">Grow</span>
-                <p className="new-landing__how-desc">Watch the debate grow as more people weigh in.</p>
+                <p className="new-landing__how-desc">The debate grows as more people are tagged in</p>
+              </li>
+              <li className="new-landing__how-step new-landing__how-step--with-visual">
+                <HowWorksStepIcon icon={Earth} />
+                <span className="new-landing__how-keyword">Post</span>
+                <p className="new-landing__how-desc">Share debates and takes across platforms</p>
               </li>
             </ol>
           </div>
         </section>
 
         <section
-          id="solution"
-          className="new-landing__section new-landing__section--split"
-          aria-labelledby="new-landing-solution-heading"
-        >
-          <div className="new-landing__split-intro">
-            <h2 id="new-landing-solution-heading" className="new-landing__split-heading">
-              Debate on your timeline
-            </h2>
-            <p className="new-landing__split-subheading">
-              Record takes, tag responses, and share chains—without locking anyone into the same live slot.
-            </p>
-          </div>
-          <div className="new-landing__split-main">
-            <div className="new-landing__split-body-col">
-              <p className="new-landing__split-body">
-                Tag is a debate app where you build, join, and share asynchronous video debates. Post takes and full chains to the platforms your audience already uses—no studio calendar required.
-              </p>
-              <p className="new-landing__split-accent">Logistics out. Threads in.</p>
-            </div>
-            <figure className="new-landing__split-figure">
-              {/* <img className="new-landing__split-img" src="" alt="" /> */}
-              <div className="new-landing__split-image-slot" aria-hidden="true" />
-            </figure>
-          </div>
-        </section>
-
-        <section
           id="why-it-works"
-          className="new-landing__section new-landing__section--how"
+          className="new-landing__section new-landing__section--how new-landing__section--last"
           aria-labelledby="new-landing-why-heading"
         >
           <div className="new-landing__split-intro">
             <h2 id="new-landing-why-heading" className="new-landing__split-heading">
-              Why it works
+              Key Features
             </h2>
             <p className="new-landing__split-subheading">
-              Tagging, tight takes, and publishing wherever your audience already is.
+              Sharp takes, clear structure, flexible turns, and publishing where your audience already is.
             </p>
           </div>
           <div className="new-landing__how-steps-wrap">
             <ul className="new-landing__how-steps">
               <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={UsersRound} />
-                <span className="new-landing__how-keyword">Tagging system</span>
-                <p className="new-landing__how-desc">
-                  Invite anyone into a debate to have their say, at a time convenient for them.
-                </p>
-              </li>
-              <li className="new-landing__how-step new-landing__how-step--with-visual">
                 <HowWorksStepIcon icon={Timer} />
                 <span className="new-landing__how-keyword">Bite-sized takes</span>
                 <p className="new-landing__how-desc">
-                  20-second takes keep points sharp and concise.
+                  20-second takes keep every argument sharp and focused — rewarding clarity over verbosity.
+                </p>
+              </li>
+              <li className="new-landing__how-step new-landing__how-step--with-visual">
+                <HowWorksStepIcon icon={Link2} />
+                <span className="new-landing__how-keyword">Debate chains</span>
+                <p className="new-landing__how-desc">
+                  Takes link together into a linear, easy-to-follow debate structure — distinct points, no interruptions.
+                </p>
+              </li>
+              <li className="new-landing__how-step new-landing__how-step--with-visual">
+                <HowWorksStepIcon icon={UsersRound} />
+                <span className="new-landing__how-keyword">Tagging system</span>
+                <p className="new-landing__how-desc">
+                  An asynchronous turn structure means anyone can contribute whenever and wherever suits them.
                 </p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
                 <HowWorksStepIcon icon={Share2} />
-                <span className="new-landing__how-keyword">Cross platform posting</span>
+                <span className="new-landing__how-keyword">Cross-platform posting</span>
                 <p className="new-landing__how-desc">
-                  Share individual takes or full debate chains to any platform.
+                  Post an entire debate or individual takes directly to the platforms where your audience already is.
                 </p>
               </li>
             </ul>
           </div>
+          <footer className="new-landing__footer">
+            <nav className="new-landing__footer-nav" aria-label="Footer">
+              <span className="new-landing__footer-domain">tag-social.com</span>
+              <span className="new-landing__footer-sep" aria-hidden="true">
+                ·
+              </span>
+              <a href="/privacy" className="new-landing__footer-link">
+                Privacy
+              </a>
+              <span className="new-landing__footer-sep" aria-hidden="true">
+                ·
+              </span>
+              <a href="/terms" className="new-landing__footer-link">
+                Terms
+              </a>
+            </nav>
+          </footer>
         </section>
-
-        <footer id="footer" className="new-landing__footer">
-          <div className="new-landing__footer-wordmark">
-            <TitleLogo />
-          </div>
-          <p className="new-landing__footer-domain">tagdebate.com</p>
-          <nav className="new-landing__footer-nav" aria-label="Footer">
-            <a href="/privacy" className="new-landing__footer-link">Privacy</a>
-            <span className="new-landing__footer-sep" aria-hidden="true">·</span>
-            <a href="/terms" className="new-landing__footer-link">Terms</a>
-          </nav>
-        </footer>
       </div>
     </div>
   );
