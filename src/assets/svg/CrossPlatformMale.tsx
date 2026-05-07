@@ -1,4 +1,3 @@
-import * as React from "react";
 const CrossPlatformMale = ({props}: {props: any}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
