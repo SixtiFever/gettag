@@ -8,30 +8,27 @@ import {
   UsersRound,
 } from 'lucide-react';
 import './NewLandingPage.css';
-import splashHero from '../../assets/icons/splash-icon-light.png';
-import ConnectedWorld from '../../assets/svg/ConnectedWorld';
+import debatePlayingLeft from '../../assets/screenshots/debate_playing_screenshot-left.png';
+import feedScreenshot from '../../assets/screenshots/feed_screenshot-portrait.png';
 import GrowGlobal from '../../assets/svg/GrowGlobal';
 import RecordSelfie from '../../assets/svg/RecordSeflie';
 import TagSomeone from '../../assets/svg/TagSomeone';
 import TitleLogo from './TitleLogo';
-import { HowWorksStepIcon } from './HowWorksStepIcon';
-import CrossPlatformMale from '../../assets/svg/CrossPlatformMale';
 
 const SUBMIT_EMAIL_URL = 'https://us-central1-tag-lp-cloudfunction.cloudfunctions.net/submitEmail';
 
 /** Ordered scroll targets for scroll-spy and prev/next arrows */
 const SCROLL_SECTIONS = [
   { id: 'hero', label: 'Intro' },
-  { id: 'problem', label: 'Problem' },
   { id: 'how-it-works', label: 'How it works' },
   { id: 'why-it-works', label: 'Why it works' },
 ] as const;
 
 /** Label shown beside the down arrow (next section title / CTA from current viewport) */
 const NEXT_SECTION_CTA: Partial<Record<(typeof SCROLL_SECTIONS)[number]['id'], string>> = {
-  hero: 'Why Tag',
-  problem: 'See how Tag works',
-  'how-it-works': 'Key Features',
+  hero: 'See how Tag works',
+  'how-it-works': 'What makes Tag different',
+  'why-it-works': 'Key Features',
 };
 
 type ScrollSectionId = (typeof SCROLL_SECTIONS)[number]['id'];
@@ -182,13 +179,14 @@ export default function TagLanding() {
             <div className="new-landing__hero-copy-col">
               <div className="new-landing__hero-copy-inner animate-fade-in">
                 <h1 id="new-landing-hero-heading" className="new-landing__hero-heading">
-                  The Global
+                  Global Video Debate
                   <br />
-                  <span className="new-landing__hero-heading-accent">Debate Studio</span>
+                  <span className="new-landing__hero-heading-accent">From Your Phone</span>
                   <br />
                 </h1>
                 <p className="new-landing__hero-lede animate-fade-in-delay-1">
-                  Video debates that reward logic, not loudness
+                {/* Long-form video debate means planning, scheduling and mediating. Tag makes it easier. Simply record your take, tag someone to respond, and watch the debate chain grow. */}
+                Tag is where people can have global debates that fit into daily life. No scheduling needed. All you need is your phone, something to say, and 20 seconds.
                 </p>
 
                 {!submitted ? (
@@ -238,19 +236,29 @@ export default function TagLanding() {
             </div>
 
             <div className="new-landing__hero-visual-col">
-              <img
-                src={splashHero}
-                alt="Tag app splash screen on a phone"
-                className="new-landing__hero-img animate-fade-in-delay-1"
-                width={640}
-                height={640}
-                decoding="async"
-              />
+              <div className="new-landing__hero-visual-phones">
+                <img
+                  src={feedScreenshot}
+                  alt="Tag app My Debates feed on a phone"
+                  className="new-landing__hero-img animate-fade-in-delay-1"
+                  width={1419}
+                  height={2796}
+                  decoding="async"
+                />
+                <img
+                  src={debatePlayingLeft}
+                  alt="Tag app playing a debate take on a phone"
+                  className="new-landing__hero-img animate-fade-in-delay-2"
+                  width={1857}
+                  height={3096}
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </section>
 
-        <section
+        {/* <section
           id="problem"
           className="new-landing__section new-landing__section--split"
           aria-labelledby="new-landing-problem-heading"
@@ -275,23 +283,22 @@ export default function TagLanding() {
             </div>
             <ConnectedWorld props={{ className: 'new-landing__split-illustration' }} />
           </div>
-        </section>
+        </section> */}
 
         <section
           id="how-it-works"
           className="new-landing__section new-landing__section--how"
           aria-labelledby="new-landing-how-heading"
         >
-          <div className="new-landing__split-intro">
-            <h2 id="new-landing-how-heading" className="new-landing__split-heading">
+          <header className="new-landing__how-intro">
+            <p className="new-landing__how-eyebrow">How it works</p>
+            <h2 id="new-landing-how-heading" className="new-landing__how-heading">
               How Tag Works
             </h2>
-            <p className="new-landing__split-subheading">
-              {/* Chain user takes into a single debate video and post it anywhere */}
-              {/* Build debates by chaining user takes into a single video */}
-              Build video debates take by take. Post anywhere.
+            <p className="new-landing__how-subtitle">
+              Tag makes debating convenient for everyone whilst rewarding logic, not loudness
             </p>
-          </div>
+          </header>
           <div className="new-landing__how-steps-wrap new-landing__how-steps-wrap--with-bridge">
             <ol className="new-landing__how-steps">
               <li className="new-landing__how-step new-landing__how-step--with-visual">
@@ -324,7 +331,7 @@ export default function TagLanding() {
                 <span className="new-landing__how-keyword">Grow</span>
                 <p className="new-landing__how-desc">The debate chain grows as more people are tagged in</p>
               </li>
-              <li className="new-landing__how-step new-landing__how-step--with-visual">
+              {/* <li className="new-landing__how-step new-landing__how-step--with-visual">
                 <div
                   className="new-landing__how-step-icon-wrap new-landing__how-step-icon-wrap--circle"
                   aria-hidden="true"
@@ -333,12 +340,12 @@ export default function TagLanding() {
                 </div>
                 <span className="new-landing__how-keyword">Post</span>
                 <p className="new-landing__how-desc">Share debates and takes across platforms</p>
-              </li>
+              </li> */}
             </ol>
           </div>
           <div className="new-landing__how-bridge">
             <p className="new-landing__how-bridge-text">
-              Tag creates video debates that are convenient, fast-paced and high quality.
+              Share individual takes or full debate chains to any platform.
             </p>
           </div>
         </section>
@@ -348,41 +355,51 @@ export default function TagLanding() {
           className="new-landing__section new-landing__section--how new-landing__section--last"
           aria-labelledby="new-landing-why-heading"
         >
-          <div className="new-landing__split-intro">
-            <h2 id="new-landing-why-heading" className="new-landing__split-heading">
-              Key Features
-            </h2>
-            <p className="new-landing__split-subheading">
-              Sharp takes, clear structure, flexible turns, and publishing where your audience already is.
-            </p>
-          </div>
-          <div className="new-landing__how-steps-wrap">
-            <ul className="new-landing__how-steps">
-              <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Timer} />
-                <span className="new-landing__how-keyword">Bite-sized takes</span>
-                <p className="new-landing__how-desc">
-                  20-second takes keep every argument sharp and focused — rewarding clarity over verbosity.
+          <div className="new-landing__why">
+            <header className="new-landing__why-intro">
+              <p className="new-landing__why-eyebrow">Key features</p>
+              <h2 id="new-landing-why-heading" className="new-landing__why-heading">
+                Why Tag is different
+              </h2>
+              <p className="new-landing__why-subtitle">
+                Sharp takes, clear structure, flexible turns, and publishing where your audience already is.
+              </p>
+            </header>
+            <ul className="new-landing__why-grid">
+              <li className="new-landing__why-card">
+                <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
+                  <Timer className="new-landing__why-card-icon" strokeWidth={1.75} />
+                </div>
+                <h3 className="new-landing__why-card-title">Bite-sized takes</h3>
+                <p className="new-landing__why-card-desc">
+                  20-second takes keep every argument sharp and focused, rewarding clarity over verbosity.
                 </p>
               </li>
-              <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Link2} />
-                <span className="new-landing__how-keyword">Debate chains</span>
-                <p className="new-landing__how-desc">
-                  Takes link together into a linear, easy-to-follow debate structure — distinct points, no interruptions.
+              <li className="new-landing__why-card">
+                <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
+                  <Link2 className="new-landing__why-card-icon" strokeWidth={1.75} />
+                </div>
+                <h3 className="new-landing__why-card-title">Debate chains</h3>
+                <p className="new-landing__why-card-desc">
+                  Takes link together into a linear, easy-to-follow debate structure — distinct points, no
+                  interruptions.
                 </p>
               </li>
-              <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={UsersRound} />
-                <span className="new-landing__how-keyword">Tagging system</span>
-                <p className="new-landing__how-desc">
+              <li className="new-landing__why-card">
+                <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
+                  <UsersRound className="new-landing__why-card-icon" strokeWidth={1.75} />
+                </div>
+                <h3 className="new-landing__why-card-title">Tagging system</h3>
+                <p className="new-landing__why-card-desc">
                   An asynchronous turn structure means anyone can contribute whenever and wherever suits them.
                 </p>
               </li>
-              <li className="new-landing__how-step new-landing__how-step--with-visual">
-                <HowWorksStepIcon icon={Share2} />
-                <span className="new-landing__how-keyword">Cross-platform posting</span>
-                <p className="new-landing__how-desc">
+              <li className="new-landing__why-card">
+                <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
+                  <Share2 className="new-landing__why-card-icon" strokeWidth={1.75} />
+                </div>
+                <h3 className="new-landing__why-card-title">Cross-platform posting</h3>
+                <p className="new-landing__why-card-desc">
                   Post an entire debate or individual takes directly to the platforms where your audience already is.
                 </p>
               </li>
