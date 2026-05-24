@@ -1,0 +1,221 @@
+import { Link } from 'react-router-dom';
+import { SUPPORT_EMAIL } from '../../constants/support';
+import TitleLogo from '../landing-pages/TitleLogo';
+import './LegalPage.css';
+
+export default function PrivacyPage() {
+  return (
+    <article className="legal-page">
+      <header className="legal-page__header">
+        <Link to="/" className="legal-page__home-link" aria-label="Back to Tag home">
+          <TitleLogo />
+        </Link>
+      </header>
+
+      <div className="legal-page__content">
+        <h1 className="legal-page__title">Privacy Policy</h1>
+        <p className="legal-page__effective-date">Effective Date: April 2026</p>
+
+        <p className="legal-page__intro">
+          This Privacy Policy explains how Tag (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects,
+          uses, and protects your information when you use our mobile application (&quot;the App&quot;).
+        </p>
+
+        <section className="legal-page__section" aria-labelledby="privacy-info-collect">
+          <h2 className="legal-page__section-title" id="privacy-info-collect">
+            1. Information We Collect
+          </h2>
+          <p className="legal-page__paragraph">
+            <strong>Account Information:</strong> When you create an account, we collect your email
+            address, username, and optional profile photo.
+          </p>
+          <p className="legal-page__paragraph">
+            <strong>User Content:</strong> We collect the video content, debate titles, and other
+            content you create and post through the App.
+          </p>
+          <p className="legal-page__paragraph">
+            <strong>Device Information:</strong> We collect device identifiers needed to deliver
+            push notifications (such as an Expo push token). We do not collect device advertising
+            identifiers (IDFA).
+          </p>
+          <p className="legal-page__paragraph">
+            <strong>Usage Data:</strong> We may collect information about how you interact with the
+            App, such as which debates you view, to improve the service.
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-how-we-use">
+          <h2 className="legal-page__section-title" id="privacy-how-we-use">
+            2. How We Use Your Information
+          </h2>
+          <p className="legal-page__paragraph">We use your information to:</p>
+          <ul className="legal-page__list">
+            <li>Provide, operate, and maintain the App</li>
+            <li>Create and manage your account</li>
+            <li>Deliver push notifications you have opted into</li>
+            <li>Display your content to other users as part of the debate platform</li>
+            <li>Respond to your support requests</li>
+            <li>Enforce our Terms of Service and Community Guidelines</li>
+            <li>Improve and develop new features</li>
+          </ul>
+          <p className="legal-page__paragraph">We do not sell your personal data.</p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-data-storage">
+          <h2 className="legal-page__section-title" id="privacy-data-storage">
+            3. Data Storage and Security
+          </h2>
+          <p className="legal-page__paragraph">
+            Your account data is stored using Firebase (Google Cloud Platform), which provides
+            industry-standard encryption in transit and at rest. Video content is stored and
+            delivered via Cloudflare Stream. We implement appropriate technical and organizational
+            measures to protect your data against unauthorized access, alteration, disclosure, or
+            destruction.
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-third-party">
+          <h2 className="legal-page__section-title" id="privacy-third-party">
+            4. Third-Party Service Providers
+          </h2>
+          <p className="legal-page__paragraph">
+            We share data with the following categories of service providers, who are contractually
+            obligated to protect your data:
+          </p>
+          <ul className="legal-page__list">
+            <li>Firebase (Google Cloud) — authentication, database, and file storage</li>
+            <li>Cloudflare Stream — video hosting and delivery</li>
+            <li>Expo — push notification delivery</li>
+          </ul>
+          <p className="legal-page__paragraph">
+            We do not share your personal data with third parties for advertising purposes.
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-data-sharing">
+          <h2 className="legal-page__section-title" id="privacy-data-sharing">
+            5. Data Sharing and Disclosure
+          </h2>
+          <p className="legal-page__paragraph">
+            We do not sell or rent your personal information. We may disclose your information if:
+          </p>
+          <ul className="legal-page__list">
+            <li>Required by law, regulation, or legal process</li>
+            <li>
+              Necessary to protect the rights, property, or safety of Tag, our users, or the public
+            </li>
+            <li>
+              Related to a merger, acquisition, or sale of assets (you would be notified)
+            </li>
+          </ul>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-your-rights">
+          <h2 className="legal-page__section-title" id="privacy-your-rights">
+            6. Your Rights
+          </h2>
+          <p className="legal-page__paragraph">You have the right to:</p>
+          <ul className="legal-page__list">
+            <li>Access your personal data through your profile in the App</li>
+            <li>
+              Update your email, username, profile photo, and bio through Account Settings
+            </li>
+            <li>Delete your account at any time through Account Settings</li>
+            <li>
+              Request a copy of your data by contacting us at{' '}
+              <a className="legal-page__link" href={`mailto:${SUPPORT_EMAIL}`}>
+                {SUPPORT_EMAIL}
+              </a>
+            </li>
+            <li>Withdraw consent for push notifications through your device settings</li>
+          </ul>
+          <p className="legal-page__paragraph">
+            When you delete your account, your identity is anonymized. Your video contributions may
+            remain for debate continuity, but will no longer be associated with your identity.
+          </p>
+          <p className="legal-page__paragraph">
+            If you are located in the European Economic Area (EEA), you may also have the right to
+            data portability, the right to restrict processing, and the right to lodge a complaint
+            with your local data protection authority.
+          </p>
+          <p className="legal-page__paragraph">
+            If you are a California resident, you have the right to know what personal information
+            we collect, request deletion, and opt out of the sale of personal information (we do not
+            sell personal information).
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-data-retention">
+          <h2 className="legal-page__section-title" id="privacy-data-retention">
+            7. Data Retention
+          </h2>
+          <p className="legal-page__paragraph">
+            We retain your personal data while your account is active. After account deletion, we
+            remove your personal identifiers. Anonymized content references may remain for debate
+            continuity. Abuse reports and moderation records may be retained as necessary to enforce
+            our policies and comply with legal obligations.
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-children">
+          <h2 className="legal-page__section-title" id="privacy-children">
+            8. Children&apos;s Privacy
+          </h2>
+          <p className="legal-page__paragraph">
+            Tag is not intended for users under 13 years of age. We do not knowingly collect
+            personal data from children under 13. If we become aware that we have collected data
+            from a child under 13, we will take steps to delete that information promptly. If you
+            believe a child under 13 has provided us with personal data, please contact us at{' '}
+            <a className="legal-page__link" href={`mailto:${SUPPORT_EMAIL}`}>
+              {SUPPORT_EMAIL}
+            </a>
+            .
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-changes">
+          <h2 className="legal-page__section-title" id="privacy-changes">
+            9. Changes to This Policy
+          </h2>
+          <p className="legal-page__paragraph">
+            We may update this Privacy Policy from time to time. We will notify you of significant
+            changes through the App. Continued use of the App after changes take effect constitutes
+            acceptance of the revised policy. The &quot;Effective Date&quot; at the top will be
+            updated accordingly.
+          </p>
+        </section>
+
+        <section className="legal-page__section" aria-labelledby="privacy-contact">
+          <h2 className="legal-page__section-title" id="privacy-contact">
+            10. Contact
+          </h2>
+          <p className="legal-page__paragraph">
+            For privacy questions or to exercise your rights, use the Contact Us option in the App
+            or email us at{' '}
+            <a className="legal-page__link" href={`mailto:${SUPPORT_EMAIL}`}>
+              {SUPPORT_EMAIL}
+            </a>
+          </p>
+        </section>
+      </div>
+
+      <footer className="legal-page__footer">
+        <nav className="legal-page__footer-nav" aria-label="Footer">
+          <span className="legal-page__footer-domain">tag-social.com</span>
+          <span className="legal-page__footer-sep" aria-hidden="true">
+            ·
+          </span>
+          <Link to="/privacy" className="legal-page__footer-link" aria-current="page">
+            Privacy
+          </Link>
+          <span className="legal-page__footer-sep" aria-hidden="true">
+            ·
+          </span>
+          <Link to="/terms" className="legal-page__footer-link">
+            Terms
+          </Link>
+        </nav>
+      </footer>
+    </article>
+  );
+}

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ChevronDown,
   ChevronUp,
@@ -458,15 +459,15 @@ export default function TagLanding() {
               <span className="new-landing__footer-sep" aria-hidden="true">
                 ·
               </span>
-              <a href="/privacy" className="new-landing__footer-link">
+              <Link to="/privacy" className="new-landing__footer-link">
                 Privacy
-              </a>
+              </Link>
               <span className="new-landing__footer-sep" aria-hidden="true">
                 ·
               </span>
-              <a href="/terms" className="new-landing__footer-link">
+              <Link to="/terms" className="new-landing__footer-link">
                 Terms
-              </a>
+              </Link>
             </nav>
           </footer>
         </section>

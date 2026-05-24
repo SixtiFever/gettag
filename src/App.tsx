@@ -1,22 +1,28 @@
-import './App.css'
-import NewLandingPage from './components/landing-pages/NewLandingPage'
-import TagDebateLP from './components/landing-pages/TagDebateLP'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import PrivacyPage from './components/legal/PrivacyPage';
+import TermsPage from './components/legal/TermsPage';
+import NewLandingPage from './components/landing-pages/NewLandingPage';
+import TagDebateLP from './components/landing-pages/TagDebateLP';
 
-type LandingPageVariant = 'newLanding' | 'tagDebate'
+type LandingPageVariant = 'newLanding' | 'tagDebate';
 
 function App() {
-  const variant: LandingPageVariant = 'newLanding'
+  const variant: LandingPageVariant = 'newLanding';
 
-  const pages = {
-    newLanding: <NewLandingPage />,
-    tagDebate: <TagDebateLP />,
-  } as const
+  const landingPage = variant === 'newLanding' ? <NewLandingPage /> : <TagDebateLP />;
 
   return (
-    <div className="app-container">
-      {pages[variant]}
-    </div>
-  )
+    <BrowserRouter>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={landingPage} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
