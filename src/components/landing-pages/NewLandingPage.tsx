@@ -187,7 +187,7 @@ export default function TagLanding() {
                 </h1>
                 <p className="new-landing__hero-lede animate-fade-in-delay-1">
                 {/* Long-form video debate means planning, scheduling and mediating. Tag makes it easier. Simply record your take, tag someone to respond, and watch the debate chain grow. */}
-                Tag is where people can have global debates that fit into daily life. No scheduling needed. All you need is your phone, something to say, and 20 seconds.
+                Tag is where people can have global debates that fit into daily life. No scheduling needed. All you need is your phone, something to say, and 30 seconds.
                 </p>
 
                 {!submitted ? (
@@ -259,33 +259,6 @@ export default function TagLanding() {
           </div>
         </section>
 
-        {/* <section
-          id="problem"
-          className="new-landing__section new-landing__section--split"
-          aria-labelledby="new-landing-problem-heading"
-        >
-          <div className="new-landing__split-problem-layout">
-            <div className="new-landing__split-problem-copy">
-              <div className="new-landing__split-intro">
-                <h2 id="new-landing-problem-heading" className="new-landing__split-heading">
-                  Video debating is broken
-                </h2>
-                <p className="new-landing__split-subheading">
-                  Scheduling limits participation. Real-time rewards theatre.
-                </p>
-              </div>
-              <p className="new-landing__split-solution">
-                <span className="new-landing__split-solution-em">Tag</span> transforms video debate through{' '}
-                <span className="new-landing__split-solution-em">flexible 20-second takes</span> — making
-                participation <span className="new-landing__split-solution-em">easier</span>, arguments{' '}
-                <span className="new-landing__split-solution-em">sharper</span>, and every voice{' '}
-                <span className="new-landing__split-solution-em">accountable</span>.
-              </p>
-            </div>
-            <ConnectedWorld props={{ className: 'new-landing__split-illustration' }} />
-          </div>
-        </section> */}
-
         <section
           id="how-it-works"
           className="new-landing__section new-landing__section--how"
@@ -310,7 +283,7 @@ export default function TagLanding() {
                   <RecordSelfie props={{ className: 'new-landing__how-step-illustration' }} />
                 </div>
                 <span className="new-landing__how-keyword">Record</span>
-                <p className="new-landing__how-desc">Make your point in a 20-second clip</p>
+                <p className="new-landing__how-desc">Make your point in a 30-second clip</p>
               </li>
               <li className="new-landing__how-step new-landing__how-step--with-visual">
                 <div
@@ -369,11 +342,20 @@ export default function TagLanding() {
             <ul className="new-landing__why-grid">
               <li className="new-landing__why-card">
                 <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
+                  <Share2 className="new-landing__why-card-icon" strokeWidth={1.75} />
+                </div>
+                <h3 className="new-landing__why-card-title">Cross-platform posting</h3>
+                <p className="new-landing__why-card-desc">
+                  Post an entire debate or individual takes directly to the platforms where your audience already is.
+                </p>
+              </li>
+              <li className="new-landing__why-card">
+                <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
                   <Timer className="new-landing__why-card-icon" strokeWidth={1.75} />
                 </div>
                 <h3 className="new-landing__why-card-title">Bite-sized takes</h3>
                 <p className="new-landing__why-card-desc">
-                  20-second takes keep every argument sharp and focused, rewarding clarity over verbosity.
+                  30-second takes keep every argument sharp and focused, rewarding clarity over verbosity.
                 </p>
               </li>
               <li className="new-landing__why-card">
@@ -393,15 +375,6 @@ export default function TagLanding() {
                 <h3 className="new-landing__why-card-title">Tagging system</h3>
                 <p className="new-landing__why-card-desc">
                   An asynchronous turn structure means anyone can contribute whenever and wherever suits them.
-                </p>
-              </li>
-              <li className="new-landing__why-card">
-                <div className="new-landing__why-card-icon-wrap" aria-hidden="true">
-                  <Share2 className="new-landing__why-card-icon" strokeWidth={1.75} />
-                </div>
-                <h3 className="new-landing__why-card-title">Cross-platform posting</h3>
-                <p className="new-landing__why-card-desc">
-                  Post an entire debate or individual takes directly to the platforms where your audience already is.
                 </p>
               </li>
             </ul>
