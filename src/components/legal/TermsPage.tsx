@@ -184,6 +184,12 @@ export default function TermsPage() {
           <Link to="/terms" className="legal-page__footer-link" aria-current="page">
             Terms
           </Link>
+          <span className="legal-page__footer-sep" aria-hidden="true">
+            ·
+          </span>
+          <Link to="/your-data" className="legal-page__footer-link">
+            Your Data
+          </Link>
         </nav>
       </footer>
     </article>

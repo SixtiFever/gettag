@@ -214,6 +214,12 @@ export default function PrivacyPage() {
           <Link to="/terms" className="legal-page__footer-link">
             Terms
           </Link>
+          <span className="legal-page__footer-sep" aria-hidden="true">
+            ·
+          </span>
+          <Link to="/your-data" className="legal-page__footer-link">
+            Your Data
+          </Link>
         </nav>
       </footer>
     </article>

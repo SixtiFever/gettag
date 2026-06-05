@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import DataHandlingPage from './components/legal/DataHandlingPage';
 import PrivacyPage from './components/legal/PrivacyPage';
 import TermsPage from './components/legal/TermsPage';
 import NewLandingPage from './components/landing-pages/NewLandingPage';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={landingPage} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/your-data" element={<DataHandlingPage />} />
         </Routes>
       </div>
     </BrowserRouter>

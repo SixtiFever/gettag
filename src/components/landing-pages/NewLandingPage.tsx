@@ -441,6 +441,12 @@ export default function TagLanding() {
               <Link to="/terms" className="new-landing__footer-link">
                 Terms
               </Link>
+              <span className="new-landing__footer-sep" aria-hidden="true">
+                ·
+              </span>
+              <Link to="/your-data" className="new-landing__footer-link">
+                Your Data
+              </Link>
             </nav>
           </footer>
         </section>
