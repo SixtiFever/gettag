@@ -1,78 +1,57 @@
-# Tag App Landing Page
+# Tag Landing Page (tag-social.com)
 
-A modern, video-background landing page for the Tag app beta launch. Built with React, TypeScript, and Vite.
+The live site is **static HTML** — not React. Production is served directly from these files at the repo root:
 
-## Features
+| File | URL |
+|------|-----|
+| **`index.html`** | https://tag-social.com/ |
+| `privacy.html` | https://tag-social.com/privacy |
+| `terms.html` | https://tag-social.com/terms |
+| `your-data.html` | https://tag-social.com/your-data |
 
-- **Video Background**: Full-screen video background with overlay
-- **Responsive Design**: Optimized for desktop, tablet, and mobile
-- **Beta Signup Form**: Clean form for collecting beta user information
-- **Style Guide Compliance**: Follows the Tag app design system
-- **Modern UI**: Clean, minimalistic design with smooth animations
+All CSS is inlined in each HTML file. Screenshots live in `assets/screenshots/`. No build step is required for deployment.
 
-## Getting Started
+## Preview locally
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Start the development server:
 ```bash
 npm run dev
 ```
 
-3. Open your browser and navigate to `http://localhost:5173`
+Opens http://localhost:5173/ — the same static `index.html` that production serves.
 
-### Adding Your Video
+Or without Node:
 
-1. Replace `/public/placeholder-video.mp4` with your actual video file
-2. Ensure the video is optimized for web (H.264 codec, compressed)
-3. Recommended resolution: 1920x1080 or 1280x720
-
-### Customization
-
-The landing page follows the Tag app style guide with:
-- **Colors**: 60:30:10 color rule (off-white, grays, dark accent)
-- **Typography**: Consistent font hierarchy and spacing
-- **Components**: Styled buttons, inputs, and cards
-- **Responsive**: Mobile-first design approach
-
-### Form Integration
-
-The signup form currently logs to console. To integrate with your backend:
-
-1. Update the `handleSubmit` function in `src/App.tsx`
-2. Add your API endpoint
-3. Implement proper error handling and validation
-
-### Deployment
-
-Build for production:
 ```bash
-npm run build
+python3 -m http.server 8765
+# → http://localhost:8765/
 ```
 
-The built files will be in the `dist` directory, ready for deployment to any static hosting service.
+## Regenerate static pages
 
-## Design System
+If you edit the React source or CSS in `src/` and want to refresh the static HTML:
 
-This landing page implements the Tag app style guide with:
-- Gentle off-white backgrounds (#FEFEFE)
-- Dark accent colors (#030301)
-- Mint green highlights (#7DE2D1)
-- Consistent spacing and typography
-- Community-focused messaging
+```bash
+npm run generate:static
+```
 
-## Browser Support
+This runs `scripts/build-static-html.mjs` and rewrites `index.html`, `privacy.html`, `terms.html`, and `your-data.html`.
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## Legacy React app (optional)
+
+The old client-rendered React app is still in `src/` for reference. To run it locally only:
+
+```bash
+npm run dev:react
+```
+
+This opens `dev.html` — **not** what tag-social.com serves.
+
+## Deploy
+
+Push to the connected Git branch. Vercel serves the repo root as static files (`vercel.json` disables the Vite build). After deploy, verify:
+
+```bash
+curl -s https://tag-social.com/ | grep "Global Video Debate"
+```
+
+You should see the hero text in the raw HTML (no `<div id="root">`).
