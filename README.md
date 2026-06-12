@@ -1,17 +1,15 @@
-# Tag Landing Page (tag-social.com)
+# Tag Landing Page
 
-Static HTML site with Tailwind CSS, deployed to Vercel on every git push.
+Static site for [tag-social.com](https://www.tag-social.com) — landing page plus legal docs.
 
 | URL | Page |
 |-----|------|
-| https://www.tag-social.com/ | Landing page |
-| https://www.tag-social.com/privacy | Privacy Policy |
-| https://www.tag-social.com/terms | Terms of Service |
-| https://www.tag-social.com/your-data | Your Data |
+| `/` | Landing page |
+| `/privacy` | Privacy Policy |
+| `/terms` | Terms of Service |
+| `/your-data` | Your Data |
 
-Use `www.tag-social.com` consistently — the apex domain redirects to www.
-
-## Preview locally
+## Quick start
 
 ```bash
 npm install
@@ -19,16 +17,10 @@ npm run build
 npm run preview
 ```
 
-Opens http://localhost:4173/ serving `dist/`. **View Source** shows full page content in HTML.
+Opens http://localhost:4173/ serving the production build.
 
-For CSS edits during development:
+For CSS watch mode: `npm run dev`
 
-```bash
-npm run dev
-```
+## Documentation
 
-This watches `css/input.css` and recompiles to `css/styles.css`. Run `npm run build` before preview to pick up HTML changes.
-
-## Deploy
-
-Push to the connected Git branch. Vercel runs `npm ci && npm run build` and serves `dist/`. No Playwright or React build step.
+See **[docs/site.md](docs/site.md)** for architecture, file layout, build pipeline, JavaScript modules, and deployment details.

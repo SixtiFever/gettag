@@ -44,7 +44,6 @@ copyRecursive(path.join(root, 'your-data'), path.join(dist, 'your-data'));
 copyRecursive(path.join(root, 'js'), path.join(dist, 'js'));
 copyRecursive(path.join(root, 'assets'), path.join(dist, 'assets'));
 copyFile(path.join(root, 'css', 'legal.css'), path.join(dist, 'css', 'legal.css'));
-copyFile(path.join(root, 'robots.txt'), path.join(dist, 'robots.txt'));
 
 for (const file of fs.readdirSync(path.join(root, 'public'))) {
   const src = path.join(root, 'public', file);

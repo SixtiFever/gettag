@@ -1,10 +1,4 @@
 node_modules
-archived
-docs
-mock-backend
-FIREBASE_DEPLOYMENT.md
-.expo
-src
-newlp_pipe
 dist
 css/styles.css
+docs
