@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How Tag handles your data, including account deletion and what is removed or kept." />
+    <link rel="icon" type="image/png" href="/assets/icons/speech.png" />
+    <title>Your Data — Tag</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/legal.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-indigo-500/30">
+      <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-900/20 blur-[120px]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-fuchsia-900/10 blur-[120px]"></div>
+      </div>
+      <div class="relative z-10 flex min-h-screen flex-col">
+        <nav class="max-w-7xl mx-auto w-full px-6 py-5 flex justify-between items-center">
+          <a href="/" class="text-2xl font-extrabold tracking-tighter text-white flex items-center gap-2" aria-label="Back to Tag home">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-white" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            </div>
+            Tag
+          </a>
+        </nav>
+        <main class="flex-1 max-w-3xl mx-auto w-full px-6 py-8 md:py-12 legal-page">
+          <h1 class="legal-page__title">Your Data</h1>
+          <p class="legal-page__intro">This page describes how <strong>Tag</strong> — the app listed as &quot;Tag&quot; on the App Store and Google Play — handles your data, including how to delete your account and what is removed or kept when you do. Tag is a mobile app for collaborative video debates. We collect only what we need to run the service. We do not sell or pass on your data, and we do not retain data unnecessarily.</p>
+
+          <section class="legal-page__section" aria-labelledby="data-delete-steps">
+            <h2 class="legal-page__section-title" id="data-delete-steps">How to Delete Your Tag Account</h2>
+            <p class="legal-page__paragraph">You can delete your Tag account at any time, directly from inside the app:</p>
+            <ol class="legal-page__list legal-page__list--ordered">
+              <li>Open the Tag app and sign in.</li>
+              <li>Go to <strong>Profile → Account Settings</strong>.</li>
+              <li>Tap <strong>Delete Account</strong>.</li>
+              <li>Confirm your password when prompted, then tap <strong>Delete Account</strong> again to confirm.</li>
+            </ol>
+            <p class="legal-page__paragraph">If you cannot access the app (for example, you have lost your password and cannot reset it), you can also request deletion by emailing <a class="legal-page__link" href="mailto:hello@tag-social.com">hello@tag-social.com</a> from the email address on your account. We will verify your identity and process the deletion within 30 days.</p>
+          </section>
+
+          <section class="legal-page__section" aria-labelledby="data-what-we-collect">
+            <h2 class="legal-page__section-title" id="data-what-we-collect">What We Collect</h2>
+            <p class="legal-page__paragraph">Account info (email, username, date of birth, profile photo) for sign-up and age verification. Video takes you record. An optional device push token for notifications when you are tagged or a debate updates. Optional OAuth tokens, only if you link Tag to your other socials for cross-platform posting. These are all securely stored server side.</p>
+          </section>
+
+          <section class="legal-page__section" aria-labelledby="data-your-controls">
+            <h2 class="legal-page__section-title" id="data-your-controls">Your Controls</h2>
+            <p class="legal-page__paragraph">Update your profile in Account Settings. Turn off push notifications in device settings or in the app. Unlink YouTube or TikTok from Profile → Linked Platforms — this immediately deletes the stored OAuth token for that platform. Delete your account from Account Settings (password confirmation required). Email <a class="legal-page__link" href="mailto:hello@tag-social.com">hello@tag-social.com</a> to request a copy of your data.</p>
+          </section>
+
+          <section class="legal-page__section" aria-labelledby="data-deletion-removed">
+            <h2 class="legal-page__section-title" id="data-deletion-removed">Account Deletion — Data That Is Deleted</h2>
+            <p class="legal-page__paragraph">When you delete your account, the following data is permanently removed from our live systems:</p>
+            <ul class="legal-page__list">
+              <li>Your Firebase login (email and authentication credentials)</li>
+              <li>Your profile photo stored on our servers</li>
+              <li>Notifications sent to you</li>
+              <li>Block records involving you</li>
+              <li>Solo debates and takes (debates you created alone with no other participants)</li>
+              <li>Your linked-platform OAuth tokens (YouTube, TikTok, etc.) — these are cleared as soon as you unlink or delete your account</li>
+              <li>Identifying profile fields: your email, bio, profile photo URL, and push token are cleared, and your username is replaced with &quot;[Deleted User]&quot;</li>
+            </ul>
+            <p class="legal-page__paragraph">Deletion requires password confirmation before any changes. If a step fails, completed steps are rolled back so your account is not left in a partial state. Once deletion completes you cannot recover your account or sign in again.</p>
+          </section>
+
+          <section class="legal-page__section" aria-labelledby="data-deletion-retained">
+            <h2 class="legal-page__section-title" id="data-deletion-retained">Account Deletion — Data That Is Kept (and For How Long)</h2>
+            <p class="legal-page__paragraph">Tag is collaborative, and some information must be kept so the rest of the platform keeps working. After deletion, the following data is retained:</p>
+            <ul class="legal-page__list">
+              <li><strong>Video takes in multi-person debates</strong> — kept so other participants&apos; debates remain playable, shown with your name as &quot;[Deleted User].&quot; Retained for as long as the debate exists.</li>
+              <li><strong>Debate metadata</strong> (title, turn order) for multi-person debates — kept alongside the videos above.</li>
+              <li><strong>Cloudflare-hosted video files</strong> for those multi-person debates — kept with the debate; removed if the debate is deleted.</li>
+              <li><strong>Date of birth</strong> — kept on the anonymized profile record for age verification and to prevent re-registration by underage users.</li>
+              <li><strong>Abuse and moderation reports</strong> — retained as long as needed to enforce our Terms and Community Guidelines and to comply with legal obligations.</li>
+              <li><strong>Encrypted backups and system logs</strong> — your data may persist in routine, encrypted backups for up to <strong>30 days</strong> after deletion, after which it is overwritten on the normal backup rotation.</li>
+            </ul>
+            <p class="legal-page__paragraph">Open debates where you were the active responder are closed automatically as part of deletion.</p>
+          </section>
+
+          <section class="legal-page__section" aria-labelledby="data-contact">
+            <h2 class="legal-page__section-title" id="data-contact">Questions</h2>
+            <p class="legal-page__paragraph">For privacy or data requests, email <a class="legal-page__link" href="mailto:hello@tag-social.com">hello@tag-social.com</a>.</p>
+          </section>
+        </main>
+        <footer class="max-w-7xl mx-auto w-full px-6 py-12 border-t border-slate-800/50 flex flex-col items-center gap-6 text-slate-500">
+          <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2 font-bold text-slate-300">
+              <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 to-fuchsia-500 flex items-center justify-center opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3 text-white" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+              Tag
+            </div>
+            <p class="text-sm">© <span id="footer-year"></span> Tag. All rights reserved.</p>
+          </div>
+          <nav class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm" aria-label="Footer">
+            <a href="/privacy" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="/terms" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+            <span aria-hidden="true">·</span>
+            <a href="/your-data" class="text-slate-300" aria-current="page">Your Data</a>
+          </nav>
+        </footer>
+      </div>
+    </div>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
