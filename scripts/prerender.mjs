@@ -2,7 +2,6 @@ import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -84,6 +83,28 @@ async function prerenderRoute(page, routePath) {
   return page.content();
 }
 
+async function launchBrowser() {
+  const useSparticuzChromium = Boolean(process.env.VERCEL) && process.platform === 'linux';
+
+  if (useSparticuzChromium) {
+    const { chromium: playwright } = await import('playwright-core');
+    const sparticuzChromium = (await import('@sparticuz/chromium')).default;
+
+    sparticuzChromium.setGraphicsMode = false;
+    const executablePath = await sparticuzChromium.executablePath();
+    process.env.LD_LIBRARY_PATH = path.dirname(executablePath);
+
+    return playwright.launch({
+      args: sparticuzChromium.args,
+      executablePath,
+      headless: sparticuzChromium.headless,
+    });
+  }
+
+  const { chromium } = await import('playwright');
+  return chromium.launch({ headless: true });
+}
+
 async function main() {
   if (!fs.existsSync(distDir)) {
     throw new Error('dist/ not found. Run vite build before prerendering.');
@@ -95,7 +116,7 @@ async function main() {
   let browser;
 
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await launchBrowser();
     const page = await browser.newPage();
 
     for (const route of routes) {
