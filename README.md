@@ -1,57 +1,53 @@
 # Tag Landing Page (tag-social.com)
 
-The live site is **static HTML** — not React. Production is served directly from these files at the repo root:
+Production is a **React SPA** built with Vite, prerendered at build time with Playwright, and deployed to Vercel on every git push.
 
-| File | URL |
-|------|-----|
-| **`index.html`** | https://tag-social.com/ |
-| `privacy.html` | https://tag-social.com/privacy |
-| `terms.html` | https://tag-social.com/terms |
-| `your-data.html` | https://tag-social.com/your-data |
+| URL | Route |
+|-----|-------|
+| https://www.tag-social.com/ | Landing page (`PipeLandingPage`) |
+| https://www.tag-social.com/privacy | Privacy Policy |
+| https://www.tag-social.com/terms | Terms of Service |
+| https://www.tag-social.com/your-data | Your Data |
 
-All CSS is inlined in each HTML file. Screenshots live in `assets/screenshots/`. No build step is required for deployment.
+Use `www.tag-social.com` consistently — the apex domain redirects to www.
 
 ## Preview locally
 
 ```bash
+npm install
 npm run dev
 ```
 
-Opens http://localhost:5173/ — the same static `index.html` that production serves.
+Opens http://localhost:5173/ with hot reload. **View Source in dev mode shows an empty shell** — that is expected (Vite serves a client-only app during development).
 
-Or without Node:
-
-```bash
-python3 -m http.server 8765
-# → http://localhost:8765/
-```
-
-## Regenerate static pages
-
-If you edit the React source or CSS in `src/` and want to refresh the static HTML:
+## Production build
 
 ```bash
-npm run generate:static
+npm run build
+npm run preview
 ```
 
-This runs `scripts/build-static-html.mjs` and rewrites `index.html`, `privacy.html`, `terms.html`, and `your-data.html`.
+Build output goes to `dist/`. The build runs Vite, then Playwright prerender snapshots `/`, `/privacy`, `/terms`, and `/your-data` into static HTML files so crawlers (including TikTok's verifier) see full page content without executing JavaScript.
 
-## Legacy React app (optional)
-
-The old client-rendered React app is still in `src/` for reference. To run it locally only:
-
-```bash
-npm run dev:react
-```
-
-This opens `dev.html` — **not** what tag-social.com serves.
+After `npm run preview`, open http://localhost:4173/ and use **View Source** — you should see the hero copy, section content, and footer legal links in the HTML.
 
 ## Deploy
 
-Push to the connected Git branch. Vercel serves the repo root as static files (`vercel.json` disables the Vite build). After deploy, verify:
+Push to the connected Git branch. Vercel runs `npm ci && npm run build` and serves `dist/`.
+
+After deploy, verify crawlability:
 
 ```bash
-curl -s https://tag-social.com/ | grep "Global Video Debate"
+curl -sL https://www.tag-social.com/ | grep -i "Privacy Policy"
+curl -sL https://www.tag-social.com/ | grep -i "Short Form Video Debating"
+curl -sL https://www.tag-social.com/privacy | grep -i "Information We Collect"
+curl -sL https://www.tag-social.com/tiktokHtkXenpFyQKVqzQGFM8237uag8LO94Xh.txt
 ```
 
-You should see the hero text in the raw HTML (no `<div id="root">`).
+## Archived
+
+Previous static HTML landing pages, old React designs, and the `newlp_pipe` prototype live in [`archived/`](archived/).
+
+## Email signup
+
+The landing page posts to the Cloud Function at `https://us-central1-tag-lp-cloudfunction.cloudfunctions.net/submitEmail`.

@@ -1,12 +1,12 @@
 {
   "framework": null,
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": ".",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/your-data", "destination": "/your-data.html" }
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/terms", "destination": "/index.html" },
+    { "source": "/your-data", "destination": "/index.html" }
   ]
 }
