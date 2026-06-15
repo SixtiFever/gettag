@@ -3,9 +3,23 @@
 @source "../*.html";
 @source "../**/*.html";
 
+@theme {
+  --color-azure-blue-50: rgb(231 240 254);
+  --color-azure-blue-100: rgb(206 224 253);
+  --color-azure-blue-200: rgb(158 193 250);
+  --color-azure-blue-300: rgb(109 162 248);
+  --color-azure-blue-400: rgb(60 131 246);
+  --color-azure-blue-500: rgb(11 100 244);
+  --color-azure-blue-600: rgb(9 80 195);
+  --color-azure-blue-700: rgb(7 60 146);
+  --color-azure-blue-800: rgb(5 40 97);
+  --color-azure-blue-900: rgb(2 20 49);
+  --color-azure-blue-950: rgb(2 14 34);
+}
+
 body {
-  background-color: #020617;
-  color: #f8fafc;
+  background-color: rgb(231 240 254);
+  color: rgb(2 14 34);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
