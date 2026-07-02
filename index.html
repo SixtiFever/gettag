@@ -112,11 +112,11 @@
         <section id="what-is-tag" class="max-w-7xl mx-auto px-6 pt-12 pb-24 md:pt-16 border-t border-azure-blue-200 scroll-mt-6">
           <div class="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-azure-blue-950">What is Tag?</h2>
+              <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-azure-blue-950">What is <span class="inline-block w-fit text-white bg-azure-blue-950 px-4 py-2 rounded-xl">Tag?</span></h2>
               <div class="space-y-6 text-xl text-azure-blue-700 leading-relaxed">
-                <p>Tag is an app for creating and sharing Video Chains — a new format where friends co-create together, from nothing, into a finished piece of content.</p>
-                <p>Every other tool is reactive (TikTok), solo (Reels, YouTube), or built for editing (CapCut, Premiere). Tag is the only place where a group of people create something together, with structure, that becomes a single narrative video.</p>
-                <p>Short-form video is how the world communicates. Collaboration is how the best content gets made. Tag brings those together — social, mobile-first, and easy.</p>
+                <p class="text-azure-blue-950 font-semibold border-l-4 border-azure-blue-400 pl-5">Tag is built on a simple principle: humans create better together.</p>
+                <p>Tag brings this to life through Video Chains — a new format where friends co-create clip by clip into a single finished video.</p>
+                <p>From debating to storytelling, improv to roasting, Tag is the only place where a group creates something together, from nothing, into one piece of content.</p>
               </div>
             </div>
 
@@ -141,9 +141,25 @@
             <div>
               <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-azure-blue-950">What are Video Chains</h2>
               <div class="space-y-6 text-xl text-azure-blue-700 leading-relaxed">
-                <p>Video content that's collaboratively built. Take by take.</p>
+                <p><span class="block w-fit text-white bg-azure-blue-950 px-4 py-2 rounded-xl">Multiple voices. One video.</span></p>
                 <p>A Video Chain is a sequence of short clips, each contributed by a different person, connected into one viewable narrative. Structured, easy to follow, and ready to share.</p>
-                <p>Comedy. Debate. Storytelling. Campaigns. Whatever you're making — build it together with the people who make it better.</p>
+                <p class="flex flex-wrap items-baseline gap-x-2 gap-y-2">
+                  <label for="inspiration-category">Some inspiration:</label>
+                  <select
+                    name="inspiration"
+                    id="inspiration-category"
+                    class="ml-4 md:ml-6 cursor-pointer rounded-full border-2 border-azure-blue-500 bg-white px-4 py-1.5 font-medium text-azure-blue-950 transition-colors hover:bg-azure-blue-50"
+                  >
+                    <option value="improv">Improv</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="debate">Debate</option>
+                    <option value="storytelling">Storytelling</option>
+                    <option value="campaigns">Campaigns</option>
+                    <option value="education">Education</option>
+                  </select>
+                </p>
+                <nav id="inspiration-example-tabs" class="flex flex-wrap gap-x-4 gap-y-2 text-base" aria-label="Example ideas" role="tablist"></nav>
+                <div id="inspiration-examples" class="mt-2" aria-live="polite"></div>
               </div>
             </div>
 
@@ -407,5 +423,6 @@
     <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
     <script src="/js/email-form.js"></script>
     <script src="/js/debate-mockup.js"></script>
+    <script src="/js/inspiration-ideas.js"></script>
   </body>
 </html>
